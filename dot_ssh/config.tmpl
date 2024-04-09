@@ -5,7 +5,7 @@ Host github.com-insufferable
 {{- if eq .chezmoi.hostname "fedoraDesktop" }}
    IdentityFile ~/.ssh/InsufferableDesktop
 {{- end}}
-{{- if eq .chezmoi.hostname "termenvLaptop" }}
+{{- if eq .chezmoi.hostname "terminal" }}
    IdentityFile ~/.ssh/InsufferableLaptop
 {{- end}}
 
@@ -16,7 +16,7 @@ Host github.com-reticulated
 {{- if eq .chezmoi.hostname "fedoraDesktop" }}
    IdentityFile ~/.ssh/ReticulatedDesktop
 {{- end}}
-{{- if eq .chezmoi.hostname "termenvLaptop" }}
+{{- if eq .chezmoi.hostname "terminal" }}
    IdentityFile ~/.ssh/ReticulatedLaptop 
 {{- end}}
 
