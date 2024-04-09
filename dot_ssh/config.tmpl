@@ -1,0 +1,22 @@
+# Professional account, - the default config
+Host github.com-insufferable
+   HostName github.com
+   User git
+{{- if eq .chezmoi.hostname "fedoraDesktop" }}
+   IdentityFile ~/.ssh/InsufferableDesktop
+{{- end}}
+{{- if eq .chezmoi.hostname "termenvLaptop" }}
+   IdentityFile ~/.ssh/InsufferableLaptop
+{{- end}}
+
+# Hobby account
+Host github.com-reticulated
+   HostName github.com
+   User git
+{{- if eq .chezmoi.hostname "fedoraDesktop" }}
+   IdentityFile ~/.ssh/ReticulatedDesktop
+{{- end}}
+{{- if eq .chezmoi.hostname "termenvLaptop" }}
+   IdentityFile ~/.ssh/ReticulatedLaptop 
+{{- end}}
+
