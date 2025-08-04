@@ -5,6 +5,6 @@ layout {
         pane command="btop"
     }
     pane size=2 borderless=true {
-        plugin location="zellij:compact-bar"
+        plugin location="zellij:status-bar"
     }
 }
