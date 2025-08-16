@@ -29,3 +29,5 @@ alias ghcrlogin='echo $CR_PAT | podman login ghcr.io -u {{ (bitwarden "item" "71
 alias flatpak-builder='flatpak run org.flatpak.Builder'
 alias newalpine='. ~/Scripts/newat.sh'
 alias newrider='. ~/Scripts/newrider.sh'
+alias bwul='export BW_SESSION=$(bw unlock --raw)'
+alias bwlog='export BW_SESSION=$(bw login {{ (bitwarden "item" "c4462cf4-4afb-47aa-84db-b33b01022857").notes  }} --raw)'
