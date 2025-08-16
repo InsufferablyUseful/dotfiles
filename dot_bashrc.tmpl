@@ -27,4 +27,5 @@ fi
 unset rc
 alias ghcrlogin='echo $CR_PAT | podman login ghcr.io -u {{ (bitwarden "item" "71e62611-6aac-44d1-a3aa-ad5a00151ff9").login.username }} --password-stdin'
 alias flatpak-builder='flatpak run org.flatpak.Builder'
-
+alias newalpine='. ~/Scripts/newat.sh'
+alias newrider='. ~/Scripts/newrider.sh'
