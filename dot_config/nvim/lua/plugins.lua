@@ -33,6 +33,7 @@ require("lazy").setup({
     config = function()
         local lspconfig = require("lspconfig")
 	lspconfig.lua_ls.setup({})
+        lspconfig.qmlls.setup({})
     end,
 },
     {
@@ -116,5 +117,9 @@ require("lazy").setup({
             signature = { enabled = true },
         },
         opts_extend = { "sources.default" },
-    }
+    },
+    {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"}
+
+
+
 })
