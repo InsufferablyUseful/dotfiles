@@ -1,0 +1,25 @@
+{
+    "settings": {
+        "bar": {
+            "fontSize": 12,
+            "monochromeTrayIcons": true,
+            "trayIconSize": 16
+        },
+        "currentTheme": "default",
+        "execCommands": {
+            "files": "thunar",
+            "terminal": "foot"
+        },
+        "militaryTimeClockFormat": true,
+        "setWallpaperToThemeWallpaper": true,
+        "systemDetails": {
+            "cpu": "CPU Name",
+            "gpu": "GPU Name",
+            "osName": "Fedora",
+            "osVersion": "42",
+            "ram": "16 GB"
+        },
+        "systemProfileImageSource": "/home/evelyn/Pictures/profilepics/lain_profile.png",
+        "version": "0.1"
+    }
+}
