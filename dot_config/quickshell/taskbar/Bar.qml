@@ -234,7 +234,7 @@ Scope {
                     }
                     SysTray {
                         id: sysTray
-                    }
+	            }
                 }
         }
 

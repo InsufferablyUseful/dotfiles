@@ -93,4 +93,10 @@ RowLayout {
     ClockWidget {
         id: clockWidget
     }
+    Battery {
+        id: batteryWidget
+    }
+    Cpu {
+        id: cpuWidget
+    }
 }
