@@ -33,7 +33,7 @@ require("lazy").setup({
     config = function()
         local lspconfig = require("lspconfig")
 	lspconfig.lua_ls.setup({})
-        lspconfig.qmlls.setup({})
+        -- lspconfig.qmlls.setup({})
     end,
 },
     {
