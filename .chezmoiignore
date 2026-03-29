@@ -1,0 +1,3 @@
+{{- if ne .chezmoi.hostname "work-laptop"}}
+.config/quickshell/* # only use quickshell on fedora laptop. 
+{{- end}}
