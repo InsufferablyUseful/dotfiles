@@ -1,0 +1,5 @@
+{{- if ne .chezmoi.hostname "work-laptop"}}
+.config/quickshell/  
+{{- end}}
+.config/nvim-writing/lazy-lock.json
+.config/nvim/lazy-lock.json
