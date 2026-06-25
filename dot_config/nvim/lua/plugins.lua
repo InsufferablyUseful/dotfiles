@@ -1,32 +1,16 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-{"ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = {} },
-{"sheerun/vim-polyglot" },
---[[{"saghen/blink.cmp", dependencies = { 'echasnovski/mini.snippets' }, opts = {
-  snippets = { preset = 'mini_snippets' },
-  sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer'}
-  },
-  }
-},]]--
-{'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons'}, opts = {
-    options = {
+vim.pack.add({
+'https://github.com/ellisonleao/gruvbox.nvim',
+'https://github.com/sheerun/vim-polyglot',
+'https://github.com/nvim-tree/nvim-web-devicons',
+'https://github.com/nvim-lualine/lualine.nvim',
+'https://github.com/mason-org/mason.nvim',
+'https://github.com/neovim/nvim-lspconfig',
+'https://github.com/neovim-treesitter/treesitter-parser-registry',
+'https://github.com/neovim-treesitter/nvim-treesitter',
+{src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('1.x')},
+})
+require('lualine').setup {
+options = {
     icons_enabled = true,
     theme = 'gruvbox',
     },
@@ -38,8 +22,16 @@ require("lazy").setup({
     lualine_y = {},
     lualine_z = {}
     }
-    }
 }
+require('nvim-treesitter').install {'c','cpp', 'lua'}
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'c','cpp', 'lua'},
+    callback = function()
+        vim.treesitter.start()
+        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        vim.wo.foldmethod = 'expr'
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
 })
-
+require('blink.cmp').setup()
 

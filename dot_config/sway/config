@@ -37,8 +37,7 @@ exec syncthing
 exec_always kanshi
 exec_always gammastep -l geoclue2 -b 1:0.8  -t 6500:4000
 #Quickshell
-exec_always qs kill
-exec_always qs
+exec waybar
 
 ### Output configuration
 #
