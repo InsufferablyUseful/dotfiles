@@ -8,6 +8,10 @@ vim.pack.add({
 'https://github.com/neovim-treesitter/treesitter-parser-registry',
 'https://github.com/neovim-treesitter/nvim-treesitter',
 {src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('1.x')},
+'https://github.com/stevearc/conform.nvim',
+'https://github.com/nvim-neotest/nvim-nio',
+'https://github.com/mfussenegger/nvim-dap',
+'https://github.com/rcarriga/nvim-dap-ui',
 })
 require('lualine').setup {
 options = {
@@ -34,4 +38,23 @@ vim.api.nvim_create_autocmd('FileType', {
     end
 })
 require('blink.cmp').setup()
-
+require('conform').setup({
+formatters_by_ft = {
+    cpp = {"clang-format"},
+    },
+format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
+    },
+})
+require('dapui').setup()
+local dap, dapui = require('dap'), require('dap')
+dap.listeners.before.attach.dapui_config = function()
+    dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+    dapui.open()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+    dapui.close()
+end
