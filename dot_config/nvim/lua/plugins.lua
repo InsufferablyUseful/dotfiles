@@ -48,7 +48,7 @@ format_on_save = {
     },
 })
 require('dapui').setup()
-local dap, dapui = require('dap'), require('dap')
+local dap, dapui = require('dap'), require('dapui')
 dap.listeners.before.attach.dapui_config = function()
     dapui.open()
 end
