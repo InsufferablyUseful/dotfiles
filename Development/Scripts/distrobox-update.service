@@ -1,0 +1,7 @@
+[Unit]
+Description=Updates alpine, alpine-apps and rider distrobox containers 
+[Service]
+Type=oneshot
+ExecStart=%h/Development/Scripts/distrobox-update.sh
+
+

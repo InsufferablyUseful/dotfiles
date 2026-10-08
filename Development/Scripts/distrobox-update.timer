@@ -1,0 +1,8 @@
+[Unit]
+Description=Updates distrobox containers weekly
+[Timer]
+OnCalendar=weekly
+Persistent=true
+[Install]
+WantedBy=timers.target
+
